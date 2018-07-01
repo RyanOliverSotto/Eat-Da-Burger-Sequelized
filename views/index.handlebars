@@ -1,0 +1,65 @@
+    <div class="container">
+        <div class="well">
+            <h1 class="text-center"><img class = "svg" src="./assets/img/utensils.svg" alt="fork knife plate"/> Eat-Da-Burger! <img class="svg" src="./assets/img/burger.svg" alt="burger"/></h1>
+            <p>Restaurant App for Making and Devouring your Favorite Burgers</p>
+        </div>
+        <br/>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Burgers on the Menu: Click to Devour</div>
+                    <div class="panel-body buttonSection">
+                            {{#each burgers}} {{#unless this.devoured}}
+                            <div class="text-center">
+                                <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+                                    <button type="submit" class='btn btn-success btn-margin '> {{this.burger_name}}</button>
+                                </form>
+                            </div>
+                            {{/unless}} {{/each}}
+                    </div>
+                </div>
+                <!--End panel-->
+            </div>
+            <!--End div sm 6-->
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Devoured Burgers: Click to Delete</div>
+                    <div class="panel-body buttonSection">
+                                    {{#each burgers}} {{#if this.devoured}}
+                                    <div class='text-center'>
+                                        <form action="/burgers/{{this.id}}?_method=DELETE" method="POST">                                        
+                                            <button type="submit" class="btn btn-danger btn-margin">{{this.burger_name}}</button>
+                                        </form>
+                                    </div>
+                                    {{/if}} {{/each}}
+                    </div>
+                </div>
+                <!--End panel-->
+            </div>
+        </div>
+        <br/>
+        <div class="row"> 
+        <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Build your very own amazing burger!</div>
+                    <div class="panel-body" id="mealSection">
+                            <form action="/burgers" method="POST" name="addForm">
+                                <input type="text" class="form-control" id="name" name="burger_name">
+                                <br>
+                                <button type="submit" class="add-burger-button btn btn-warning btn-margin">Add New Burger</button>
+                            </form>
+                    </div>
+                    <br>
+                    <!--End panel-->
+                </div>
+                <!--End panel-->
+            </div>
+            <!--End div sm-12-->
+        <!--End Row-->
+    </div> 
+    <!--End container-->
+
+
+
+
+
