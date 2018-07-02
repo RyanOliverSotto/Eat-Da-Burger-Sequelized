@@ -1,32 +1,28 @@
 {
-  "name": "burger",
+  "name": "burger-time",
   "version": "1.0.0",
-  "description": "burger app",
+  "description": "creating a burger logger with MySQL, Node, Express, Handlebars and ORM",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Waldenism/burger.git"
+    "url": "git+https://github.com/ahang/burger.git"
   },
-  "author": "Chris Walden",
-  "license": "ISC",
+  "author": "Andy H",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Waldenism/burger/issues"
+    "url": "https://github.com/ahang/burger/issues"
   },
-  "homepage": "https://github.com/Waldenism/burger#readme",
+  "homepage": "https://github.com/ahang/burger#readme",
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "bulma": "^0.6.0",
-    "express": "^4.16.2",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
     "express-handlebars": "^3.0.0",
-    "mysql": "^2.15.0",
-    "mysql2": "^1.5.2",
-    "sequelize": "^4.33.4"
-  },
-  "devDependencies": {
-    "standard": "^11.0.0"
+    "method-override": "^2.3.8",
+    "mysql": "^2.13.0",
+    "sequelize": "^3.30.4",
+    "sequelize-cli": "^2.7.0"
   }
 }
