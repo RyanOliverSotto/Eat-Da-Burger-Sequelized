@@ -4,7 +4,7 @@ var router = express.Router();
 var burger = require('../models/burgers.js');
 
 router.get('/', function (request, response) {
-    burger.selectAll(function (data) {
+    burger.findAll(function (data) {
         var viewObject = {
             burgers: data
         };
@@ -13,7 +13,7 @@ router.get('/', function (request, response) {
 });
 
 router.post('/burgers', function (request, response) {
-    burger.insertOne([
+    burger.create([
         'burger_name'
     ], [
             request.body.burger_name
@@ -25,7 +25,7 @@ router.post('/burgers', function (request, response) {
 router.put('/burgers/:id', function (request, response) {
     var condition = 'id = ' + request.params.id;
 
-    burger.updateOne({
+    burger.update({
         devoured: true
     }, condition, function (data) {
         response.redirect('/');
@@ -34,7 +34,7 @@ router.put('/burgers/:id', function (request, response) {
 
 router.delete('/burgers/:id', function (request, response) {
     var condition = 'id = ' + request.params.id;
-    burger.deleteOne(condition, function (result) {
+    burger.destroy(condition, function (result) {
         response.redirect('/');
     });
 });
