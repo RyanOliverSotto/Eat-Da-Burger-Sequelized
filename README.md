@@ -1,25 +1,26 @@
-# burger
+# Sequelized Burger Logger
 
-# About
-Created a burger logger with MySQL, Node, Express, Handlebars and custom ORM. Followed MVC design pattern using Node & MySQL to query and route the data, and Handlebars to generate HTML
+### Overview
+This application is a MVC "burger logger" that utilizes MySQL, Sequelize, Node, Express and Handlebars.  Node, MySQL, and Sequelize are used to query and route data into the app, and Handlebars is used to generate the HTML.
 
-### How to use
+### Purpose
+Burger is a restaurant app that lets users input the names of burgers they would like to eat.  When a user submits a new burger in the add burger section, the burger will be added to either the "Burgers to Eat" or the "Devoured" section depending on which option is selected.
 
-Setup and Running the App
+Each burger in the "Burgers to Eat" section has a "DEVOUR IT!" button next to it.  When the user clicks the button, the burger moves to the "Devoured" section with a "MAKE ANOTHER!" button next to it.  When the "MAKE ANOTHER!" button is clicked the burger moves back to the "Burgers to Eat" section.  Every burger is stored in a database with a value of 1 if the burger is devoured and 0 if not.
 
-1. Clone Repo and extract to accessible location
-2. Navigate in `Git` to root of the folder of `burger`
-3. Type in `npm-install`
-4. Open up the folder in your favorite text editor. Or for sublime users type in `subl .`
-5. Use `schema.sql` to create the necessary database and tables. Use `seeds.sql` to input data into the table.
-6. Navigate to `connection.js` contained within the `config` folder and update the password field with your MySQL password.
-7. Go back to `Git` and type in `node server.js`
-8. Open up your browser in type in `localhost:3000/`
-9. Enjoy!
 
-### App Functionality
+#### Model setup
+The database schema is created on the fly using sequelize and the model exported from burger.js in the models folder.
 
-1. It's a resturant app that allows users to input the names of burgers they'd like to eat
-2. Whenever a user submits a burger's name, the app will display the burger on the left side of the page - waiting to be eaten.
-3. Each burger in the waiting area has a `Devour It!` button. When the user clicks on it, the burger will move to the right side of the page.
-4. The App will store every burger in a database, whether devoured or not.
+#### Controller setup
+The controller routes are saved in burger_controller.js and exported as router. The burger_controller.js file links to the model file burger.js which links to the database.
+* The get ("/") route grabs all the burgers from the database.  
+* The post ("/") route creates a new burger in the database with the name and devoured value of the added burger.  The page is then redirected to the get route to display all burgers including the new addition.
+* The put ("/burgersmake/update") route updates the devoured value of the burger to false in the database when the button next to it is pushed.  The page is then redirected to the get route to display all burgers including the changed position of the updated burger.
+* The put ("/burgerseat/update") route updates the devoured value of the burger to true in the database when the button next to it is pushed.  The page is then redirected to the get route to display all burgers including the changed position of the updated burger.
+
+
+#### View setup
+The views folder contains the handlebar files.  The information is rendered to index.handlebars which is then sent to main.handlebars via Handlebars.  Buttons are rendered by index.handlebars which relay information to the database through the controller and model files.
+
+This application has been uploaded to Heroku and can be viewed here: [corey-burger-logger](https://corey-burger-logger.herokuapp.com/)

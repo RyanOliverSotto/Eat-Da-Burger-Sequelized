@@ -1,65 +1,68 @@
-    <div class="container">
-        <div class="well">
-            <h1 class="text-center"><img class = "svg" src="./assets/img/utensils.svg" alt="fork knife plate"/> Eat-Da-Burger! <img class="svg" src="./assets/img/burger.svg" alt="burger"/></h1>
-            <p>Restaurant App for Making and Devouring your Favorite Burgers</p>
+<body class="body">
+
+<div class="container">
+<div class="headDiv">
+</div>
+
+
+<h1 class="text-center">Burger Time!!</h1><hr><br>  
+
+<div class="row">
+  <div class="col-lg-4 text-center">  
+    <h4><u>Burgers to eat</u></h4>
+    <ul> 
+        {{#each burger}}
+         {{#unless this.devoured}}
+         <li>
+             {{this.burger_name}}
+
+            <form action="/burgerseat/update?_method=PUT" method="POST">
+                <input type="hidden" type="text" name="burger_id" value={{this.id}}>
+                <button type="submit">DEVOUR IT!</button>
+            </form>
+
+         </li> 
+         {{/unless}}
+        {{/each}}
+    </ul>        
+  </div>
+  <div class="col-lg-4 text-center">
+    <h4><u>Devoured Burgers</u></h4>
+    <ul>
+        {{#each burger}}
+          {{#if this.devoured}}
+            <li>
+                {{this.burger_name}}
+
+                <form action="/burgersdestroy/delete?_method=PUT" method="POST">
+                    <input type="hidden" type="text" name="burger_id" value={{this.id}}>
+                    <button type="submit">Remove Burger</button>
+                </form>
+
+            </li>    
+          {{/if}}
+        {{/each}}
+    </ul>    
+  </div>
+
+  <div class="col-lg-4 text-center">  
+    <h4><u>Add Burger</u></h4>
+    <form class="create-update-form" action="/" method="POST">
+        <div class="form-group">
+            <label for="bu">Burger Name:</label>
+            <input type="text" id="bu" name="burger_name">
         </div>
-        <br/>
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Burgers on the Menu: Click to Devour</div>
-                    <div class="panel-body buttonSection">
-                            {{#each burgers}} {{#unless this.devoured}}
-                            <div class="text-center">
-                                <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
-                                    <button type="submit" class='btn btn-success btn-margin '> {{this.burger_name}}</button>
-                                </form>
-                            </div>
-                            {{/unless}} {{/each}}
-                    </div>
-                </div>
-                <!--End panel-->
-            </div>
-            <!--End div sm 6-->
-            <div class="col-sm-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Devoured Burgers: Click to Delete</div>
-                    <div class="panel-body buttonSection">
-                                    {{#each burgers}} {{#if this.devoured}}
-                                    <div class='text-center'>
-                                        <form action="/burgers/{{this.id}}?_method=DELETE" method="POST">                                        
-                                            <button type="submit" class="btn btn-danger btn-margin">{{this.burger_name}}</button>
-                                        </form>
-                                    </div>
-                                    {{/if}} {{/each}}
-                    </div>
-                </div>
-                <!--End panel-->
-            </div>
+        <div class="form-group">
+            <label for="dv">Devoured?</label><br>
+            <input type="radio" name="devoured" value="0" checked> Not Eaten<br>
+            <input type="radio" name="devoured" value="1">Not Yet Eaten<Yet></Yet>
         </div>
-        <br/>
-        <div class="row"> 
-        <div class="col-sm-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Build your very own amazing burger!</div>
-                    <div class="panel-body" id="mealSection">
-                            <form action="/burgers" method="POST" name="addForm">
-                                <input type="text" class="form-control" id="name" name="burger_name">
-                                <br>
-                                <button type="submit" class="add-burger-button btn btn-warning btn-margin">Add New Burger</button>
-                            </form>
-                    </div>
-                    <br>
-                    <!--End panel-->
-                </div>
-                <!--End panel-->
-            </div>
-            <!--End div sm-12-->
-        <!--End Row-->
-    </div> 
-    <!--End container-->
 
+        <button type="submit">Add Burger</button>
+    </form> 
+  </div>
+</div>    
 
+</div>
 
-
-
+</body>

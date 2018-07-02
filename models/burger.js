@@ -1,17 +1,15 @@
 module.exports = function(sequelize, DataTypes) {
-    var Burgers = sequelize.define("Burgers", {
-        burger_name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1, 140]
-            }
-        },
-        devoured: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false,
-            defaultValue: false
-        }
-    });
-    return Burgers;
+  var Burger = sequelize.define("Burger", {
+    burger_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    devoured: {
+      type: DataTypes.BOOLEAN,
+      // defaultValue is a flag that defaults a new todos complete value to false if
+      // it isn't supplied one
+      defaultValue: false
+    }
+  });
+  return Burger;
 };

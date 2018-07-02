@@ -1,42 +1,72 @@
-console.log("Controller Operational");
 var express = require("express");
 var router = express.Router();
 
-//Importing the model to use database function
 var db = require("../models");
 
-//Creating routes and logic for each route
-router.get("/", function(req, res) {
-    db.Burgers.findAll({}).then(function(result) {
+
+router.get("/", function(req,res) {
+    db.Burger.findAll({}).then(function(dbBurger) {
+        console.log("dbBurger: " + dbBurger);
         var hbsObject = {
-            burgers: result
+            burger: dbBurger
         };
-        res.render("index", hbsObject)
+        console.log("hbsObject" + hbsObject);
+        return res.render("index", hbsObject);
     });
 });
 
 router.post("/", function(req, res) {
-    db.Burgers.create({
-        burger_name: req.body.burger
-    }).then(function() {
-        res.redirect("/");
-    });
-});
-
-router.put("/:id", function(req, res) {
-    // console.log(req);
-    // console.log(req.body.devoured);
-    // console.log(req.params.id);
-    db.Burgers.update({
+    db.Burger.create({
+        burger_name: req.body.burger_name,
         devoured: req.body.devoured
-    }, {
+    }).then(function(Burger) {
+            res.redirect("/");
+        });
+});
+
+/*router.put("/burgersmake/update", function(req, res) {
+    console.log("update requested");
+
+    db.Burger.update({
+        devoured: false
+    },{
         where: {
-            id: req.params.id
+            id: req.body.burger_id
         }
-    }).then(function(results) {
+       }
+     ).then(function(dbBurger) {
+        res.redirect("/");
+    });
+});*/
+
+router.put("/burgerseat/update", function(req, res) {
+    console.log("update requested");
+
+    db.Burger.update({
+        devoured: true
+    },{
+        where: {
+            id: req.body.burger_id
+        }
+       }
+     ).then(function(dbBurger) {
         res.redirect("/");
     });
 });
 
-//Export routes for server.js
+router.put("/burgersdestroy/delete", function(req, res) {
+    console.log("delete requested");
+
+    db.Burger.destroy({
+        where: {
+            id: req.body.burger_id
+        }
+       }
+     ).then(function(dbBurger) {
+        res.redirect("/");
+    });
+});
+
+
+
 module.exports = router;
