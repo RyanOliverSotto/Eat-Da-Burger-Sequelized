@@ -1,28 +1,32 @@
 {
   "name": "burger",
   "version": "1.0.0",
-  "description": "Eat-Da-Burger!",
-  "main": "index.js",
+  "description": "burger app",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/heguanelvis/burger.git"
+    "url": "git+https://github.com/Waldenism/burger.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Chris Walden",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/heguanelvis/burger/issues"
+    "url": "https://github.com/Waldenism/burger/issues"
   },
-  "homepage": "https://github.com/heguanelvis/burger#readme",
+  "homepage": "https://github.com/Waldenism/burger#readme",
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.16.3",
+    "body-parser": "^1.18.2",
+    "bulma": "^0.6.0",
+    "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
-    "method-override": "^2.3.10",
     "mysql": "^2.15.0",
-    "mysql2": "^1.5.3"
+    "mysql2": "^1.5.2",
+    "sequelize": "^4.33.4"
+  },
+  "devDependencies": {
+    "standard": "^11.0.0"
   }
 }
