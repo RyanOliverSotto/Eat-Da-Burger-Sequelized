@@ -24,21 +24,6 @@ router.post("/", function(req, res) {
         });
 });
 
-/*router.put("/burgersmake/update", function(req, res) {
-    console.log("update requested");
-
-    db.Burger.update({
-        devoured: false
-    },{
-        where: {
-            id: req.body.burger_id
-        }
-       }
-     ).then(function(dbBurger) {
-        res.redirect("/");
-    });
-});*/
-
 router.put("/burgerseat/update", function(req, res) {
     console.log("update requested");
 
@@ -53,6 +38,22 @@ router.put("/burgerseat/update", function(req, res) {
         res.redirect("/");
     });
 });
+
+//Change the update make again route to destroy
+/*router.put("/burgersmake/update", function(req, res) {
+    console.log("update requested");
+
+    db.Burger.update({
+        devoured: false
+    },{
+        where: {
+            id: req.body.burger_id
+        }
+       }
+     ).then(function(dbBurger) {
+        res.redirect("/");
+    });
+});*/
 
 router.put("/burgersdestroy/delete", function(req, res) {
     console.log("delete requested");
