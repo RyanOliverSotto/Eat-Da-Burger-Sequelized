@@ -1,68 +1,76 @@
 <body class="body">
 
-<div class="container">
-<div class="headDiv">
-</div>
+    <div class="container">
+        <div class="headDiv">
+        </div>
 
 
-<h1 class="text-center">Burger Time!!</h1><hr><br>  
+        <h1 class="text-center">Keto Recipe Tool</h1>
+        <hr>
+        <br>
 
-<div class="row">
-  <div class="col-lg-4 text-center">  
-    <h4><u>Burgers to eat</u></h4>
-    <ul> 
-        {{#each burger}}
-         {{#unless this.devoured}}
-         <li>
-             {{this.burger_name}}
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h4>
+                    <u>Add New Meal</u>
+                </h4>
+                <form class="create-update-form" action="/" method="POST">
+                    <div class="form-group">
+                        <label for="bu">Recipe Name:</label>
+                        <input type="text" id="bu" name="burger_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="dv">Recipe State?</label>
+                        <br>
+                        <input type="radio" name="devoured" value="0" checked>Recipe Ready
+                        <br>
+                        <input type="radio" name="devoured" value="1">Meal Consumed
+                        <Yet></Yet>
+                    </div>
 
-            <form action="/burgerseat/update?_method=PUT" method="POST">
-                <input type="hidden" type="text" name="burger_id" value={{this.id}}>
-                <button type="submit">DEVOUR IT!</button>
-            </form>
-
-         </li> 
-         {{/unless}}
-        {{/each}}
-    </ul>        
-  </div>
-  <div class="col-lg-4 text-center">
-    <h4><u>Devoured Burgers</u></h4>
-    <ul>
-        {{#each burger}}
-          {{#if this.devoured}}
-            <li>
-                {{this.burger_name}}
-
-                <form action="/burgersdestroy/delete?_method=PUT" method="POST">
-                    <input type="hidden" type="text" name="burger_id" value={{this.id}}>
-                    <button type="submit">Remove Burger</button>
+                    <button type="submit">Add Recipe</button>
                 </form>
-
-            </li>    
-          {{/if}}
-        {{/each}}
-    </ul>    
-  </div>
-
-  <div class="col-lg-4 text-center">  
-    <h4><u>Add Burger</u></h4>
-    <form class="create-update-form" action="/" method="POST">
-        <div class="form-group">
-            <label for="bu">Burger Name:</label>
-            <input type="text" id="bu" name="burger_name">
-        </div>
-        <div class="form-group">
-            <label for="dv">Devoured?</label><br>
-            <input type="radio" name="devoured" value="0" checked> Not Eaten<br>
-            <input type="radio" name="devoured" value="1">Not Yet Eaten<Yet></Yet>
+            </div>
         </div>
 
-        <button type="submit">Add Burger</button>
-    </form> 
-  </div>
-</div>    
+        <div class="row">
+            <div class="col-lg-6 text-center">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Recipes for preparation. Click to eat.</div>
+                    <div class="panel-body buttonSection">
+                        <ul style="list-style-type: none">
+                            {{#each burger}} {{#unless this.devoured}}
+                            <li>
+                                <form action="/burgerseat/update?_method=PUT" method="POST">
+                                    <input type="hidden" type="text" name="burger_id" value={{this.id}}>
+                                    <button type="submit">{{this.burger_name}}</button>
+                                </form>
+                            </li>
+                            {{/unless}} {{/each}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Meals Eaten: Click to Remove</div>
+                        <div class="panel-body buttonSection">
+                            <ul style="list-style-type: none">
+                                {{#each burger}} {{#if this.devoured}}
+                                <li>
+                                    <form action="/burgersdestroy/delete?_method=PUT" method="POST">
+                                        <input type="hidden" type="text" name="burger_id" value={{this.id}}>
+                                        <button type="submit">{{this.burger_name}}</button>
+                                    </form>
 
-</div>
+                                </li>
+                                {{/if}} {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
 
 </body>
