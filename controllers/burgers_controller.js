@@ -20,8 +20,10 @@ router.post("/", function(req, res) {
         burger_name: req.body.burger_name,
         devoured: req.body.devoured
     }).then(function(Burger) {
-            res.redirect("/");
-        });
+        res.redirect("/");
+    }).catch(function(err) {
+        console.error('something went wrong: ', err);
+    });
 });
 
 router.put("/burgerseat/update", function(req, res) {
