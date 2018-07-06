@@ -11,7 +11,7 @@ This is a full CRUD application that allows you to enter meals you plan on eatin
 
 ### Landing page of the application
 At this time, there are zero rows in the database. Options are to insert a record of recipe that is either ready to be made or has already been made but not yet logged.
-![image]![image](https://user-images.githubusercontent.com/35242379/42391884-6e19a24a-8116-11e8-8ee2-658bc22ebf26.png)
+![image](https://user-images.githubusercontent.com/35242379/42391884-6e19a24a-8116-11e8-8ee2-658bc22ebf26.png)
 
 ### Adding a new recipe to the application
 ![image](https://user-images.githubusercontent.com/35242379/42391957-b8c96c26-8116-11e8-843d-45b389f89f27.png)
