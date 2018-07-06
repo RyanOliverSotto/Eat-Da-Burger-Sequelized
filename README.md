@@ -10,23 +10,31 @@ This is a full CRUD application that allows you to enter meals you plan on eatin
 ![image](https://user-images.githubusercontent.com/35242379/42232458-14018476-7eb4-11e8-85e1-390df41bde8f.png)
 
 ### Landing page of the application
-![image](https://user-images.githubusercontent.com/35242379/42232547-5a87b6d6-7eb4-11e8-8349-3e7585eb62b9.png)
+At this time, there are zero rows in the database. Options are to insert a record of recipe that is either ready to be made or has already been made but not yet logged.
+![image]![image](https://user-images.githubusercontent.com/35242379/42391884-6e19a24a-8116-11e8-8ee2-658bc22ebf26.png)
 
 ### Adding a new recipe to the application
-![image](https://user-images.githubusercontent.com/35242379/42232597-8834e22a-7eb4-11e8-8cd2-86c4d0007b21.png)
+![image](https://user-images.githubusercontent.com/35242379/42391957-b8c96c26-8116-11e8-843d-45b389f89f27.png)
 
-### Committing new recipe to the application
-![image](https://user-images.githubusercontent.com/35242379/42232666-c5487de8-7eb4-11e8-8094-e30341987d3b.png)
+### Adding a new recipe that we had made previously but not logged.
+![image](https://user-images.githubusercontent.com/35242379/42392041-02e77dd4-8117-11e8-89a1-07d472a4f675.png)
 
-### Consuming the new recipe we just added
-![image](https://user-images.githubusercontent.com/35242379/42232774-1b47c67c-7eb5-11e8-8083-d848ed3ade0c.png)
+### Consuming the new recipe (bacon wrapped bacon) we just added. It moves over to the other panel.
+![image](https://user-images.githubusercontent.com/35242379/42392127-5df3937a-8117-11e8-8cf4-bf748c6e88c7.png)
 
-### Removing the meal from the database forever
-![image](https://user-images.githubusercontent.com/35242379/42232803-3643d2ae-7eb5-11e8-878f-b225fc5106db.png)
+### Removing the 2 meals from the database forever. Full CRUD functionality.
+![image](https://user-images.githubusercontent.com/35242379/42392164-85d6aa80-8117-11e8-896f-0ec4fd7f1e59.png)
+
+### Client-side validation executed (prevent null entries into the DB).
+![image](https://user-images.githubusercontent.com/35242379/42392281-ea2a3cc2-8117-11e8-831d-62ea4b860304.png)
+
+### Final sample of active application in use.
+![image](https://user-images.githubusercontent.com/35242379/42392446-7b6b5982-8118-11e8-9a9e-df64d1225010.png)
 
 ### Outstanding Issues
 CLOSED: HTML and CSS styling completed.
-CLOSED: Heroky and JAWS DB creation issue. >5 applications already existed in previous account.
+CLOSED: Heroku and JAWS DB creation issue. >5 applications already existed in previous account.
+CLOSED: ORM conversion to SEQUELIZE delete not posting.
 
 # https://keto-sequelized-app.herokuapp.com/
 
