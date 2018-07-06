@@ -1,13 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Special+Elite');
 
-body{
-    background-image: url("../images/bluewp.jpg");
-    background-repeat: repeat;
-    color: black;
+body, html {
+    height: 100%;
+  background-image: url("../images/Keto_Final_Image.jpg") ;
+  background-image: center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
-.jumbotron {
-    background-color:rgb(225,217,0);
+
+.jumbotron, .well {
+    background-color:rgb(225,217,0,.8);
     border-color: #ddd;
     border-spacing: solid;
     border: 1px solid;
@@ -24,7 +29,7 @@ p{
 }
 
 .well, .panel-default {
-    background-color:rgb(225,217,0);
+    background-color:rgb(225,217,0,.8);
     border-color: #ddd;
     border-spacing: solid;
     border: 1px solid;
@@ -33,7 +38,7 @@ p{
 }
 
 .panel-default > .panel-heading {
-    background-color: rgb(234,2,235);
+    background-color: rgb(234,2,235,.8);
     color: black;  
     padding-left: 5px;
     padding: 1px;
